@@ -1,0 +1,3 @@
+%s/"css/"<?php echo $base; ?>css/g
+%s/"js/"<?php echo $base; ?>js/g
+%s/"img/"<?php echo $base; ?>img/g

@@ -1,0 +1,4 @@
+
+
+%s/href="/href="<?php echo  $base; ?>
+%s/src="/src="<?php echo  $base; ?>
