@@ -57,5 +57,35 @@
 
 
 
+/********************************************img************************************************/
+        function uploadImg()
+        {
+            is_dir('./upload')?'./':mkdir('./upload',-777,false);
+            $config['upload_path']      = './upload';
+            $config['file_name']  = date('Ymd').rand();
+            $config['allowed_types']    = 'gif|jpg|png';
+            $config['max_size']     = 100000;
+            $config['max_width']        = 1024000;
+            $config['max_height']       = 768000;
+            $this->load->library('upload',$config);
+            $this->upload->do_upload();
+            $imgUrl = strstr($this->upload->data('full_path'),'upload');
+            // var_dump($this->upload->data());exit;
+            $data['img_src']  = $imgUrl;
+            $this->db->insert('mimg',$data);
+        }
+
+        public function getImg()
+        {
+            return $this->db->get('mimg')->result();
+        }
+
+        public function imgDel($id)
+        {
+            $del = array('img_id'=>$id);
+            return $this->db->delete('mimg',$del);
+        }
+
+
     }
 ?>

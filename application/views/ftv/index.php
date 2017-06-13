@@ -89,11 +89,16 @@
         <!--============================== slider =================================-->
         <div class="flexslider">
               <ul class="slides">
-            <li> <img src="<?php echo $base; ?>img/slide-1.jpg" alt="" > </li>
-            <li> <img src="<?php echo $base; ?>img/slide-2.jpg" alt="" > </li>
-            <li> <img src="<?php echo $base; ?>img/slide-3.jpg" alt="" > </li>
-            <li> <img src="<?php echo $base; ?>img/slide-4.jpg" alt="" > </li>
-            <li> <img src="<?php echo $base; ?>img/slide-5.jpg" alt="" > </li>
+                <?php foreach($slideimg as $v){?>
+                  <?php  echo "<li><img src=' ".$simg.'/'.$v->img_src. "' alt='' style='' ></li>"  ?>
+
+                <?php }?>
+
+            <!--<li> <img src="<?php// echo $base; ?>img/slide-1.jpg" alt="" > </li>
+            <li> <img src="<?php// echo $base; ?>img/slide-2.jpg" alt="" > </li>
+            <li> <img src="<?php// echo $base; ?>img/slide-3.jpg" alt="" > </li>
+            <li> <img src="<?php// echo $base; ?>img/slide-4.jpg" alt="" > </li>
+            <li> <img src="<?php// echo $base; ?>img/slide-5.jpg" alt="" > </li>-->
           </ul>
             </div>
         <span id="responsiveFlag"></span>

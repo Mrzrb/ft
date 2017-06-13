@@ -19,6 +19,21 @@
 
     <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
     <script type="text/javascript" src="http://www.prepbootstrap.com/Content/js/gridData.js"></script>
+
+
+
+
+    <!-- 
+        image upload link
+    -->
+    <link href="<?php echo  $base; ?>css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="<?php echo  $base; ?>css/theme.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="<?php echo  $base; ?>js/sortable.js" type="text/javascript"></script>
+    <script src="<?php echo  $base; ?>js/fileinput.js" type="text/javascript"></script>
+    <script src="<?php echo  $base; ?>js/fr.js" type="text/javascript"></script>
+    <script src="<?php echo  $base; ?>js/es.js" type="text/javascript"></script>
+    <script src="<?php echo  $base; ?>js/theme.min.js" type="text/javascript"></script>
+
 </head>
 <body>
     <div id="wrapper">

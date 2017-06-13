@@ -30,6 +30,7 @@
             $this->load->database();
             $this->load->library('session');
             $this->load->helper('url');
+            $this->load->helper('form');
         }
 
         public function loadLayout()

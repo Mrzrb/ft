@@ -11,7 +11,7 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul id="active" class="nav navbar-nav side-nav">
                     <li class="selected"><a href="/FAdmin/index"><i class="fa fa-bullseye"></i> Dashboard</a></li>
-                    <li><a href="<?php echo  $base; ?>portfolio.html"><i class="fa fa-tasks"></i> Portfolio</a></li>
+                    <li><a href="/mimg"><i class="fa fa-tasks"></i> MainPage Image</a></li>
                     <li><a href="/FAdmin/blog"><i class="fa fa-globe"></i> Blog</a></li>
                     <li><a href="/ACatController/catlist"><i class="fa fa-list-ol"></i>Category</a></li>
                     <li><a href="<?php echo  $base; ?>register.html"><i class="fa fa-font"></i> Register</a></li>
