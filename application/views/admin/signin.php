@@ -32,7 +32,7 @@
                     <br>
                     <br>
 
-                    <form class="col-lg-12" id="ad_sign_in" action="/FAdmin/login" method="post">
+                    <form class="col-lg-12" id="ad_sign_in" action="/Auth/login" method="post">
                         <input class="form-control input-lg minput" title="Confidential signup."
                                 placeholder="Enter your admin name" type="text" 
                                 style="width: 340px; text-align: center; margin: 20px auto;" name="ad_name">

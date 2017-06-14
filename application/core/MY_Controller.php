@@ -19,6 +19,7 @@
         public $admin_url;
         public $staticUrl;
         public $data = array();
+        public $is_log = false;
 
 
         public function __construct()
@@ -31,6 +32,12 @@
             $this->load->library('session');
             $this->load->helper('url');
             $this->load->helper('form');
+            $this->is_log= $this->session->userdata('is_log');
+            if(!$this->is_log)
+            {
+                redirect('Auth');
+            }
+            
         }
 
         public function loadLayout()
