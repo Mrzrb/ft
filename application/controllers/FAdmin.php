@@ -33,40 +33,41 @@
             redirect('/fadmin/login');
         }
 
-        public function login(){
+        // public function login(){
 
-            $this->is_log = false;
-            if($this->input->post()){
-                $this->load->view('admin/signin',$this->data);
-            }else{
+        //     $this->is_log = false;
+        //     if($this->input->post()){
+        //         $this->load->view('admin/signin',$this->data);
+        //     }else{
 
-                // $this->load->helper('url');
-                $this->load->model('FAmodel','',TRUE);
-                if(($ad_name=$this->FAmodel->login()))
-                {
-                    $udata = array(
-                        'ad_name' => $ad_name,
-                        'is_log' => TRUE
-                    );
-                    $this->session->set_userdata($udata);
-                    // $this->is_log = TRUE;
-                    // $this->is_log = true;
-                    redirect('FAdmin/index');
-                }
-            }
-        }
+        //         // $this->load->helper('url');
+        //         $this->load->model('FAmodel','',TRUE);
+        //         if(($ad_name=$this->FAmodel->login()))
+        //         {
+        //             $udata = array(
+        //                 'ad_name' => $ad_name,
+        //                 'is_log' => TRUE
+        //             );
+        //             $this->session->set_userdata($udata);
+        //             // $this->is_log = TRUE;
+        //             // $this->is_log = true;
+        //             redirect('FAdmin/index');
+        //         }
+        //     }
+        // }
         
 
 
         public function blog()
         {
 
-            $this->load->model('mblog','',TRUE);
-            // $$this->data['blogs']
-            $this->data['blogs'] = $this->mblog->getblog();
-            $this->load->view('admin/header',$this->data);
-            $this->load->view('admin/nav',$this->data);
-            $this->load->view('admin/blog',$this->data);
+            redirect('ablog');
+            // $this->load->model('mblog','',TRUE);
+            // // $$this->data['blogs']
+            // $this->data['blogs'] = $this->mblog->getblog();
+            // $this->load->view('admin/header',$this->data);
+            // $this->load->view('admin/nav',$this->data);
+            // $this->load->view('admin/blog',$this->data);
         }
 
 

@@ -26,7 +26,9 @@
                     <?php }?>
                     <?php }?>
 
-
+                    <div class="center-block">
+                        <?php echo $this->pagination->create_links();?>
+                    </div>
 
                     <!-- the comment box -->
                     <div class="well">

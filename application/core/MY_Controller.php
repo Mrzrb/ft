@@ -45,5 +45,14 @@
             $this->load->view('admin/header',$this->data);
             $this->load->view('admin/nav',$this->data);
         }
+
+
+        public function page($totol,$per)
+        {
+            $this->load->library('pagination');
+            $config['total_rows'] = $totol;
+            $config['per_page'] = $per;
+            $this->pagination->initialize($config);
+        }
     }
 ?>

@@ -37,12 +37,14 @@
          public function login(){
             $this->load->helper('url');
             $this->load->model('FAmodel','',TRUE);
-            if($this->FAmodel->login())
+            if( ($ad_name=$this->FAmodel->login()))
             {
                 // $_SESSION['is_login'] = TRUE;
                 // var_dump($this->data);
+                
                 $udata = array(
-                    'is_log' => TRUE
+                    'is_log' => TRUE,
+                    'ad_name' => $ad_name
                 );
                 $this->session->set_userdata($udata);
                 //var_dump($this->session->userdata('is_log'));exit;

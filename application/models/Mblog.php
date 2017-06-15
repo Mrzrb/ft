@@ -25,12 +25,25 @@
             $this->db->insert('blog',$blog);
         }
 
-        public function getblog()
+        public function getblog($flag=-1,$per=-1)
         {
             $this->db->select('*,cat_name');
             $this->db->from('blog');
             $this->db->join('cat','blog.cat_id=cat.cat_id','left');
+            if($flag!=-1&&$per!=-1){
+                $this->db->limit($per,$flag);
+            }
             return $this->db->get()->result();
         }
+
+        public function getNum($cat_id=-1)
+        {
+            $this->db->select('count("*") as num');
+            if($cat_id!=-1){
+                $this->db->where(['cat_id'=>$cat_id]);
+            }
+            return $this->db->get('blog')->row_array();
+        }
+        
     }
 ?>
