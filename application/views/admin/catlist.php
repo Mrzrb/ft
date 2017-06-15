@@ -32,13 +32,7 @@
 
                     <!-- the comment box -->
                     <div class="well">
-                        <h4>Leave a Comment:</h4>
-                        <form role="form">
-                            <div class="form-group">
-                                <textarea class="form-control" rows="3"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
+                            <a href="/acatcontroller/catadd"><button type="submit" class="btn btn-primary">Add new category</button></a>
                     </div>
 
                     <hr>

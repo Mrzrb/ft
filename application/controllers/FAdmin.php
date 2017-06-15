@@ -6,68 +6,70 @@
     */
     class fadmin extends init
     {
-
         public function __construct()
-        {       
-            parent::__construct();
-            // self::$instance =& $this;
-            $this->admin_url = $this->config->item('ad_base_url');
-            $this->staticUrl = $this->admin_url . '/application/views/admin/';
-            $this->data['base'] = $this->staticUrl;
-            $this->load->database();
-            $this->load->library('session');
-            $this->load->helper('url');
-            $this->load->helper('form');
+        {
+           parent::__construct();
            
         }
 
         public function index(){
             if(!$this->session->userdata('is_log')){
-                // redirect('FAdmin/login');
                 $this->load->view('admin/signin',$this->data);
             }else{
-            // $this->load->view('admin/signin',$this->data);
+                $is_log = $this->session->userdata('is_log');
                 $this->load->view('admin/header',$this->data);
-                $this->load->view('admin/nav',$this->data);
-                $this->load->view('admin/dashboard',$this->data);
+                $is_log?$this->load->view('admin/nav',$this->data):0;
+                
+                $is_log?$this->load->view('admin/dashboard',$this->data):0;
             }
         }
+    
 
-        // public function login(){
-        //     $this->load->helper('url');
-        //     $this->load->model('FAmodel','',TRUE);
-        //     if($this->FAmodel->login())
-        //     {
-        //         // $_SESSION['is_login'] = TRUE;
-        //         // var_dump($this->data);
-        //         $udata = array(
-        //             'is_log' => TRUE
-        //         );
-        //         $this->session->set_userdata($udata);
-        //         //var_dump($this->session->userdata('is_log'));exit;
-        //         // $this->load->view('admin/header',$this->data);
-        //         // $this->load->view('admin/nav',$this->data);
-        //         // $this->load->view('admin/dashboard',$this->data);
-        //         redirect('FAdmin/index');
-        //     }
-        // }
+        public function logout()
+        {
+            
+            $this->session->sess_destroy();
+            // $this->is_log = false;
+            redirect('/fadmin/login');
+        }
+
+        public function login(){
+
+            $this->is_log = false;
+            if($this->input->post()){
+                $this->load->view('admin/signin',$this->data);
+            }else{
+
+                // $this->load->helper('url');
+                $this->load->model('FAmodel','',TRUE);
+                if(($ad_name=$this->FAmodel->login()))
+                {
+                    $udata = array(
+                        'ad_name' => $ad_name,
+                        'is_log' => TRUE
+                    );
+                    $this->session->set_userdata($udata);
+                    // $this->is_log = TRUE;
+                    // $this->is_log = true;
+                    redirect('FAdmin/index');
+                }
+            }
+        }
         
 
 
         public function blog()
         {
+
+            $this->load->model('mblog','',TRUE);
+            // $$this->data['blogs']
+            $this->data['blogs'] = $this->mblog->getblog();
             $this->load->view('admin/header',$this->data);
             $this->load->view('admin/nav',$this->data);
             $this->load->view('admin/blog',$this->data);
         }
 
 
-        // public function cat()
-        // {
-        //     $this->loadLayout();
-        //     $this->load->view('ACatController/catlist',$this->data);
-        // }
-
-
+        
     }
 ?>

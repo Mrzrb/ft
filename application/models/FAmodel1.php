@@ -29,12 +29,10 @@
                 throw new Exception("Do not exist admin",1);
             }
             if($ad_pwd == $name['ad_pwd']){
-                return $ad_name;
+                return true;
             }else{
                 throw new Exception("password wrong", 1);
             }
-
-            return true;
 
         }
 
@@ -67,8 +65,8 @@
             $config['file_name']  = date('Ymd').rand();
             $config['allowed_types']    = 'gif|jpg|png';
             $config['max_size']     = 100000;
-            $config['max_width']        = 10240;
-            $config['max_height']       = 7680;
+            $config['max_width']        = 1024000;
+            $config['max_height']       = 768000;
             $this->load->library('upload',$config);
             $this->upload->do_upload();
             $imgUrl = strstr($this->upload->data('full_path'),'upload');
@@ -85,10 +83,7 @@
         public function imgDel($id)
         {
             $del = array('img_id'=>$id);
-            $this->db->where('img_id',$del['img_id']);
-            $url = $this->db->get('mimg')->result();
-            $file ='./'.$url[0]->img_src;
-            return $this->db->delete('mimg',$del)&&unlink($file);
+            return $this->db->delete('mimg',$del);
         }
 
 

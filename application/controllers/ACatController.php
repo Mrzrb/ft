@@ -16,7 +16,8 @@
         public function index(){
             // echo "<script> alert('OK');</script>";
             if($this->session->userdata('is_log')){
-                $this->load->view('admin/dashboard',$this->data);
+                // $this->load->view('admin/dashboard',$this->data);
+                redirect('acatcontroller/catlist');
             }else{
                 redirect('fadmin/index');                
                 // echo "<script> alert('You had not login yet,please login');</script>";
@@ -30,7 +31,7 @@
             if($this->input->post('cat_name')){
                 $this->load->model('FAmodel','',TRUE);
                 $this->FAmodel->catadd();
-                redirect('/FAdmin');                
+                redirect('/acatcontroller/catlist');                
             }
         }
 
