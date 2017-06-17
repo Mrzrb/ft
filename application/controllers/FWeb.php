@@ -4,22 +4,14 @@
     *@author zrb
     *@copyright  GPL
     */
-    class fweb extends CI_Controller
+    class fweb extends web
     {
-        public $base;
-        public $staticUrl;
-        public $data = array();
+        
         
 
         function __construct()
         {
             parent::__construct();
-            $this->load->helper('url');
-            $this->base = $this->config->item('s_base_url');
-            $this->staticUrl = $this->base."/application/views/ftv/";
-            $this->data['base'] = $this->staticUrl;
-            $this->data['simg'] = $this->base;
-
         }
 
         function index()
@@ -29,28 +21,33 @@
             $this->data['slideimg'] =  $this->webmodel->getSlideImg();
             // var_dump($this->data);
             //$data['base'] = $this->staticUrl;
+            $this->loadLayoutF();
             $this->load->view('ftv/index',$this->data);
             // $this->load->view('ftv/blog',$this->data);
         }
 
         function service()
         {
+            $this->loadLayoutF();
             $this->load->view('ftv/service',$this->data);
         }
 
 
         function blog()
         {
+            $this->loadLayoutF();
             $this->load->view('ftv/blog',$this->data);
         }
 
         function contact()
         {
+            $this->loadLayoutF();
             $this->load->view('ftv/contact',$this->data);
         }
 
         function search()
         {
+            $this->loadLayoutF();
             $this->load->view('ftv/search',$this->data);
         }
 

@@ -13,7 +13,6 @@
         public function __construct()
         {
             parent::__construct();
-            $this->load->database();
         }
 
 
@@ -38,6 +37,13 @@
 
         }
 
+
+
+
+        public function catlist()
+        {
+            return $this->db->get('cat')->result();
+        }
 
         public function catadd(){
             $insert = $this->input->post('cat_name')?$this->input->post('cat_name'):'';

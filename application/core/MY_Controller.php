@@ -46,6 +46,7 @@
             $this->load->view('admin/nav',$this->data);
         }
 
+     
 
         public function page($totol,$per)
         {
@@ -55,4 +56,33 @@
             $this->pagination->initialize($config);
         }
     }
+
+
+    class web extends CI_Controller{
+
+        public $base;
+        public $staticUrl;
+        public $data = array();
+
+        public function __construct()
+        {
+            parent::__construct();
+            $this->load->helper('url');
+            $this->base = $this->config->item('s_base_url');
+            $this->staticUrl = $this->base."/application/views/ftv/";
+            $this->data['base'] = $this->staticUrl;
+            $this->data['simg'] = $this->base;
+        } 
+
+        
+        public function loadLayoutF()
+        {
+            $this->load->view('ftv/header',$this->data);
+            // $this->load->view('ftv/nav',$this->data);
+        }
+
+    }
+
+
+    
 ?>
