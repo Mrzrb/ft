@@ -4,7 +4,7 @@
     *@author zrb
     *@copyright  GPL
     */
-    class fweb extends init
+    class fweb extends CI_Controller
     {
         public $base;
         public $staticUrl;
